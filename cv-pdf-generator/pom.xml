@@ -12,7 +12,7 @@
     <properties>
         <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <freemarker.version>2.3.34</freemarker.version>
+        <freemarker.version>2.3.35</freemarker.version>
         <spark.version>2.9.4</spark.version>
         <slf4j.version>1.7.36</slf4j.version>
         <openhtmltopdf.version>1.0.10</openhtmltopdf.version>
@@ -53,7 +53,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.14.1</version>
+                <version>3.16.0</version>
                 <configuration>
                     <release>${maven.compiler.release}</release>
                 </configuration>
@@ -61,12 +61,12 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>3.6.1</version>
+                <version>3.6.3</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.2.5</version>
+                <version>3.6.0</version>
                 <configuration>
                     <useModulePath>false</useModulePath>
                 </configuration>
