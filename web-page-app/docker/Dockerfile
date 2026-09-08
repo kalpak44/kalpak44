@@ -27,7 +27,10 @@ RUN RESUME_DATA_DIR=cv-pdf-generator/data \
 # broken download; the build must fail here instead.
 RUN test -s /tmp/resume.pdf && head -c 5 /tmp/resume.pdf | grep -q '^%PDF-'
 
-FROM node:26-slim AS web-builder
+# Node 24 (LTS), matching verify-web in the publish workflow. Dependabot moved this to 26
+# and the agent merged it, which left the shipped bundle built on a runtime CI never
+# exercised. The node major is held in dependabot.yml for the same reason as maven's.
+FROM node:24-slim AS web-builder
 
 WORKDIR /app/web-page-app
 
