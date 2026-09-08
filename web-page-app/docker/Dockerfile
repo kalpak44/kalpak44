@@ -12,7 +12,7 @@ RUN RESUME_DATA_DIR=cv-pdf-generator/data \
     -Dexec.mainClass=online.pavelusanli.resume.ResumeApp \
     -Dexec.args="build /tmp/resume.pdf"
 
-FROM node:22-slim AS web-builder
+FROM node:26-slim AS web-builder
 
 WORKDIR /app/web-page-app
 
