@@ -8,6 +8,12 @@ const MERMAID_BASE_CONFIG = {
   startOnLoad: false,
   securityLevel: 'loose',
   fontFamily: 'inherit',
+  // mermaid 12 defaults to the ELK layout and the `neo` look, which re-lays out and
+  // restyles every existing diagram. These pin the pre-12 defaults — upstream's
+  // documented way to keep the previous appearance — so the diagrams render as they
+  // did before the upgrade.
+  layout: 'dagre',
+  look: 'classic',
 }
 
 mermaid.initialize({
