@@ -754,9 +754,11 @@ jobs:
           20. ACT ON THE IMAGE SCAN
           ----------------------------------------------------------------------
 
-          Only if this repository's pipeline scans its image. Check once:
+          Only if this repository's pipeline scans its image. Check once, against the
+          workflow file in your checkout — `gh workflow view` prints job names, not the
+          file body, so grepping its output finds nothing even when the scan is there:
 
-            gh workflow view "${IMAGE_SCAN_WORKFLOW}" --repo "$REPO" 2>/dev/null | grep -qi grype
+            grep -rqi grype .github/workflows/
 
           If it does not, skip this section entirely and say so in your summary.
 
