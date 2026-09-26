@@ -44,7 +44,9 @@ COPY --from=pdf-builder /tmp/resume.pdf ./public/assets/resume.pdf
 
 RUN npx vite build
 
-FROM nginx:1.31-alpine
+# `-slim` is the same nginx runtime without the optional modules (image-filter, xslt,
+# geoip, njs, acme); those pull in libexpat, tiff and nghttp2, none of which this site uses.
+FROM nginx:1.31-alpine-slim
 
 WORKDIR /usr/share/nginx/html
 
