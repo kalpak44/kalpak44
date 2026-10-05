@@ -48,6 +48,12 @@ RUN npx vite build
 # geoip, njs, acme); those pull in libexpat, tiff and nghttp2, none of which this site uses.
 FROM nginx:1.31-alpine-slim
 
+# pcre2 10.48-r0 in this tag carries CVE-2026-103111, fixed in 10.49-r0, which Alpine
+# v3.24 already publishes; the nginx tag has simply not been rebuilt with it yet. Pull
+# the fix in here rather than waiting on the publisher. The soname is unchanged across
+# the patch and nginx still loads it, so this becomes a no-op once the tag catches up.
+RUN apk upgrade --no-cache pcre2
+
 WORKDIR /usr/share/nginx/html
 
 RUN rm -rf ./*
