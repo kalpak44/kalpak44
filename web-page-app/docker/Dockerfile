@@ -52,7 +52,10 @@ FROM nginx:1.31-alpine-slim
 # v3.24 already publishes; the nginx tag has simply not been rebuilt with it yet. Pull
 # the fix in here rather than waiting on the publisher. The soname is unchanged across
 # the patch and nginx still loads it, so this becomes a no-op once the tag catches up.
-RUN apk upgrade --no-cache pcre2
+#
+# zlib 1.3.2-r0 in the same tag carries CVE-2026-85091 (High), fixed in 1.3.2-r1, which
+# Alpine v3.24 also publishes; pull that in for the same reason.
+RUN apk upgrade --no-cache pcre2 zlib
 
 WORKDIR /usr/share/nginx/html
 
