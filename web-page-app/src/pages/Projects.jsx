@@ -3,16 +3,15 @@ import { useState, useEffect } from 'react'
 import gsap from 'gsap'
 import { projects } from '../data/projects.js'
 import { useIsMobile } from '../hooks/useIsMobile.js'
+import { pageMeta } from '../lib/seo.js'
 
 export function meta() {
-  return [
-    { title: 'Projects - Pavel Usanli' },
-    {
-      name: 'description',
-      content:
-        'Open-source projects and side builds by Pavel Usanli: VS Code tooling, a homelab GitOps platform, Kubernetes utilities, MCP servers, and a 3D modeling DSL.',
-    },
-  ]
+  return pageMeta({
+    title: 'Projects - Pavel Usanli',
+    description:
+      'Open-source projects and side builds by Pavel Usanli: VS Code tooling, a homelab GitOps platform, Kubernetes utilities, MCP servers, and a 3D modeling DSL.',
+    path: '/projects',
+  })
 }
 
 const C = {

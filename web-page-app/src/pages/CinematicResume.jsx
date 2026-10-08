@@ -4,14 +4,25 @@ import gsap from 'gsap'
 import { StarField } from '../components/StarField.jsx'
 import { CinematicNav } from '../components/CinematicNav.jsx'
 import { profile } from '../data/profile.js'
+import { pageMeta, SITE_URL } from '../lib/seo.js'
 
 export function meta() {
+  const description =
+    'Pavel Usanli — Software Engineer specializing in Java, automation, and end-to-end systems: backend services, CI/CD, infrastructure, and AI agent tooling.'
   return [
-    { title: `${profile.name} - ${profile.role}` },
+    ...pageMeta({ title: `${profile.name} - ${profile.role}`, description, path: '/' }),
     {
-      name: 'description',
-      content:
-        'Pavel Usanli — Software Engineer specializing in Java, automation, and end-to-end systems: backend services, CI/CD, infrastructure, and AI agent tooling.',
+      'script:ld+json': {
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: profile.name,
+        jobTitle: profile.role,
+        url: SITE_URL,
+        image: `${SITE_URL}/assets/og-image.jpg`,
+        sameAs: profile.buttons
+          .filter((button) => button.href.startsWith('http'))
+          .map((button) => button.href),
+      },
     },
   ]
 }

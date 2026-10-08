@@ -4,6 +4,7 @@ import { Markdown } from '../components/Markdown.jsx'
 import gsap from 'gsap'
 import { cheatsheets } from '../data/cheatsheets.js'
 import { useIsMobile } from '../hooks/useIsMobile.js'
+import { pageMeta } from '../lib/seo.js'
 
 export function meta({ params }) {
   const cheatsheet = cheatsheets.find((c) => c.id === params.id)
@@ -13,10 +14,11 @@ export function meta({ params }) {
       { name: 'robots', content: 'noindex' },
     ]
   }
-  return [
-    { title: `${cheatsheet.title} - Pavel Usanli` },
-    { name: 'description', content: cheatsheet.summary },
-  ]
+  return pageMeta({
+    title: `${cheatsheet.title} - Pavel Usanli`,
+    description: cheatsheet.summary,
+    path: `/cheat-sheets/${cheatsheet.id}`,
+  })
 }
 
 const C = {

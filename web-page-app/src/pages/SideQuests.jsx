@@ -3,15 +3,14 @@ import { Link, useNavigate } from 'react-router'
 import { useState, useEffect, useCallback, useRef } from 'react'
 import gsap from 'gsap'
 import { useIsMobile } from '../hooks/useIsMobile.js'
+import { pageMeta } from '../lib/seo.js'
 
 export function meta() {
-  return [
-    { title: 'Side Quests - Pavel Usanli' },
-    {
-      name: 'description',
-      content: 'A personal photo gallery from Pavel Usanli — life beyond code.',
-    },
-  ]
+  return pageMeta({
+    title: 'Side Quests - Pavel Usanli',
+    description: 'A personal photo gallery from Pavel Usanli — life beyond code.',
+    path: '/side-quests',
+  })
 }
 
 const C = {

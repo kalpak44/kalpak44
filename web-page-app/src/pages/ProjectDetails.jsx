@@ -4,6 +4,7 @@ import { Markdown } from '../components/Markdown.jsx'
 import gsap from 'gsap'
 import { projects } from '../data/projects.js'
 import { useIsMobile } from '../hooks/useIsMobile.js'
+import { pageMeta } from '../lib/seo.js'
 
 export function meta({ params }) {
   const project = projects.find((p) => p.id === params.id)
@@ -13,10 +14,11 @@ export function meta({ params }) {
       { name: 'robots', content: 'noindex' },
     ]
   }
-  return [
-    { title: `${project.title} - Pavel Usanli` },
-    { name: 'description', content: project.summary },
-  ]
+  return pageMeta({
+    title: `${project.title} - Pavel Usanli`,
+    description: project.summary,
+    path: `/projects/${project.id}`,
+  })
 }
 
 const C = {
