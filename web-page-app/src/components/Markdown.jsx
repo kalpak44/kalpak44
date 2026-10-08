@@ -126,6 +126,13 @@ export function Markdown({ content }) {
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
+          img: ({ ...props }) => (
+            <img
+              className="max-w-full h-auto rounded-xl border border-line-light/60 dark:border-white/10 shadow-sm my-6"
+              loading="lazy"
+              {...props}
+            />
+          ),
           h1: ({ ...props }) => (
             <h1 className="text-3xl font-bold mt-8 mb-4" {...props} />
           ),

@@ -1,3 +1,5 @@
+![The demo typing a bracket, a flange, a component and a vase, solving each and re-solving as a slider moves](https://raw.githubusercontent.com/kalpak44/forma-dsl/main/apps/docs/assets/demo.gif)
+
 An attempt to build my own DSL: a declarative language for 3D modeling and scene composition, with reusable components and a live solve-as-you-type preview. The repo is a monorepo - the language and its geometry kernel binding, an MCP server that writes `.forma` files, a browser editor, a landing page, and the reference manual - all published from one place.
 
 ```hcl
