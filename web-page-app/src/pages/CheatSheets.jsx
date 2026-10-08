@@ -3,16 +3,15 @@ import { useState, useEffect } from 'react'
 import gsap from 'gsap'
 import { cheatsheets } from '../data/cheatsheets.js'
 import { useIsMobile } from '../hooks/useIsMobile.js'
+import { pageMeta } from '../lib/seo.js'
 
 export function meta() {
-  return [
-    { title: 'Cheat Sheets - Pavel Usanli' },
-    {
-      name: 'description',
-      content:
-        'Developer cheat sheets on system design, CI/CD, microservices, Kubernetes, SRE, and other software engineering fundamentals.',
-    },
-  ]
+  return pageMeta({
+    title: 'Cheat Sheets - Pavel Usanli',
+    description:
+      'Developer cheat sheets on system design, CI/CD, microservices, Kubernetes, SRE, and other software engineering fundamentals.',
+    path: '/cheat-sheets',
+  })
 }
 
 const C = {
