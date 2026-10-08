@@ -1,8 +1,19 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router'
 import { useState, useEffect } from 'react'
 import gsap from 'gsap'
 import { cheatsheets } from '../data/cheatsheets.js'
 import { useIsMobile } from '../hooks/useIsMobile.js'
+
+export function meta() {
+  return [
+    { title: 'Cheat Sheets - Pavel Usanli' },
+    {
+      name: 'description',
+      content:
+        'Developer cheat sheets on system design, CI/CD, microservices, Kubernetes, SRE, and other software engineering fundamentals.',
+    },
+  ]
+}
 
 const C = {
   cyan: '#00d4ff',
@@ -99,7 +110,7 @@ function WindowControls({ onClose }) {
   )
 }
 
-export function CheatSheets() {
+export default function CheatSheets() {
   const navigate = useNavigate()
   const isMobile = useIsMobile()
 

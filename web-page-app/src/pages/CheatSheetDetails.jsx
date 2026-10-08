@@ -1,9 +1,23 @@
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
 import { Markdown } from '../components/Markdown.jsx'
 import gsap from 'gsap'
 import { cheatsheets } from '../data/cheatsheets.js'
 import { useIsMobile } from '../hooks/useIsMobile.js'
+
+export function meta({ params }) {
+  const cheatsheet = cheatsheets.find((c) => c.id === params.id)
+  if (!cheatsheet) {
+    return [
+      { title: 'Cheat sheet not found - Pavel Usanli' },
+      { name: 'robots', content: 'noindex' },
+    ]
+  }
+  return [
+    { title: `${cheatsheet.title} - Pavel Usanli` },
+    { name: 'description', content: cheatsheet.summary },
+  ]
+}
 
 const C = {
   cyan: '#00d4ff',
@@ -72,7 +86,7 @@ function WindowControls({ onClose }) {
   )
 }
 
-export function CheatSheetDetails() {
+export default function CheatSheetDetails() {
   const { id } = useParams()
   const navigate = useNavigate()
   const isMobile = useIsMobile()

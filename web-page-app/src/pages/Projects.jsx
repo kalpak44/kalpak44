@@ -1,8 +1,19 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router'
 import { useState, useEffect } from 'react'
 import gsap from 'gsap'
 import { projects } from '../data/projects.js'
 import { useIsMobile } from '../hooks/useIsMobile.js'
+
+export function meta() {
+  return [
+    { title: 'Projects - Pavel Usanli' },
+    {
+      name: 'description',
+      content:
+        'Open-source projects and side builds by Pavel Usanli: VS Code tooling, a homelab GitOps platform, Kubernetes utilities, MCP servers, and a 3D modeling DSL.',
+    },
+  ]
+}
 
 const C = {
   cyan: '#00d4ff',
@@ -91,7 +102,7 @@ function WindowControls({ onClose }) {
   )
 }
 
-export function Projects() {
+export default function Projects() {
   const navigate = useNavigate()
   const isMobile = useIsMobile()
 
