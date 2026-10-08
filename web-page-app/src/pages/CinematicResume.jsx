@@ -1,9 +1,20 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 import gsap from 'gsap'
 import { StarField } from '../components/StarField.jsx'
 import { CinematicNav } from '../components/CinematicNav.jsx'
 import { profile } from '../data/profile.js'
+
+export function meta() {
+  return [
+    { title: `${profile.name} - ${profile.role}` },
+    {
+      name: 'description',
+      content:
+        'Pavel Usanli — Software Engineer specializing in Java, automation, and end-to-end systems: backend services, CI/CD, infrastructure, and AI agent tooling.',
+    },
+  ]
+}
 
 // ── Design tokens ──────────────────────────────────────────
 const C = {
@@ -1477,7 +1488,7 @@ function LoadingScreen() {
 
 const SNAP_SECTIONS = ['hero', 'about', 'experience', 'skills', 'contact']
 
-export function CinematicResume() {
+export default function CinematicResume() {
   const mainRef = useRef(null)
   const currentIdxRef = useRef(0)
   const isScrollingRef = useRef(false)

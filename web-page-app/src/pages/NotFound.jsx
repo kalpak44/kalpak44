@@ -1,7 +1,14 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router'
 import { useState, useEffect } from 'react'
 
-export function NotFound() {
+export function meta() {
+  return [
+    { title: 'Page Not Found - Pavel Usanli' },
+    { name: 'robots', content: 'noindex' },
+  ]
+}
+
+export default function NotFound() {
   const navigate = useNavigate()
   const [countdown, setCountdown] = useState(5)
 

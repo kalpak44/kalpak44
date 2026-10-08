@@ -8,8 +8,8 @@ pnpm-debug.log*
 lerna-debug.log*
 
 web-page-app/node_modules
-web-page-app/dist
-web-page-app/dist-ssr
+web-page-app/build
+web-page-app/.react-router
 web-page-app/.vite
 *.local
 .mvn/repository/

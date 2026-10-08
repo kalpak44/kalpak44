@@ -1,8 +1,9 @@
 import { useEffect } from 'react'
+import { Outlet } from 'react-router'
 import { StarField } from './StarField.jsx'
 import { CinematicNav } from './CinematicNav.jsx'
 
-export function Layout({ children }) {
+export default function Layout() {
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', 'dark')
   }, [])
@@ -30,7 +31,7 @@ export function Layout({ children }) {
           margin: '0 auto',
         }}
       >
-        {children}
+        <Outlet />
       </div>
     </>
   )

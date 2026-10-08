@@ -6,6 +6,7 @@ import codeViewerMd from './projects/code-viewer-bot.md?raw'
 import k8sUtilMd from './projects/k8s-utility-containers.md?raw'
 import miteAssistantMd from './projects/mite-assistant-mcp.md?raw'
 import capacityPlannerMd from './projects/capacity-planner.md?raw'
+import formaDslMd from './projects/forma-dsl.md?raw'
 
 export const projects = [
   {
@@ -160,5 +161,26 @@ export const projects = [
     ],
     url: 'https://planner.pavel-usanli.online/',
     details: capacityPlannerMd,
+  },
+  {
+    id: 'forma-dsl',
+    title: 'forma-dsl - A Declarative 3D Modeling Language',
+    summary:
+      'An attempt to build my own DSL: a declarative language for 3D modeling and scene composition, with reusable components, a geometry kernel, an MCP server, and a browser editor with live solve-as-you-type previews.',
+    technologies: [
+      'JavaScript',
+      'Node.js',
+      'npm Workspaces',
+      'MCP SDK',
+      'CodeMirror',
+      'three.js',
+      'Vite',
+      'SonarCloud',
+      'GitHub Actions',
+    ],
+    github: 'https://github.com/kalpak44/forma-dsl',
+    url: 'https://kalpak44.github.io/forma-dsl/editor/',
+    devpost: 'https://devpost.com/software/forma-dsl',
+    details: formaDslMd,
   },
 ]

@@ -1,9 +1,23 @@
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
 import { Markdown } from '../components/Markdown.jsx'
 import gsap from 'gsap'
 import { projects } from '../data/projects.js'
 import { useIsMobile } from '../hooks/useIsMobile.js'
+
+export function meta({ params }) {
+  const project = projects.find((p) => p.id === params.id)
+  if (!project) {
+    return [
+      { title: 'Project not found - Pavel Usanli' },
+      { name: 'robots', content: 'noindex' },
+    ]
+  }
+  return [
+    { title: `${project.title} - Pavel Usanli` },
+    { name: 'description', content: project.summary },
+  ]
+}
 
 const C = {
   cyan: '#00d4ff',
@@ -114,7 +128,7 @@ function WindowControls({ onClose }) {
   )
 }
 
-export function ProjectDetails() {
+export default function ProjectDetails() {
   const { id } = useParams()
   const navigate = useNavigate()
   const isMobile = useIsMobile()
@@ -218,7 +232,7 @@ export function ProjectDetails() {
           </h1>
 
           {/* Action links */}
-          {(project.github || project.url) && (
+          {(project.github || project.url || project.devpost) && (
             <div
               style={{
                 display: 'flex',
@@ -273,6 +287,30 @@ export function ProjectDetails() {
                 >
                   <i className="fa-solid fa-arrow-up-right-from-square" />
                   Live Demo
+                </a>
+              )}
+              {project.devpost && (
+                <a
+                  href={project.devpost}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ios-action-btn"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '7px',
+                    padding: '10px 18px',
+                    borderRadius: '10px',
+                    background: 'rgba(244,114,182,0.1)',
+                    border: '1px solid rgba(244,114,182,0.2)',
+                    color: '#f472b6',
+                    fontSize: '0.88rem',
+                    fontWeight: 600,
+                    textDecoration: 'none',
+                  }}
+                >
+                  <i className="fa-solid fa-trophy" />
+                  Devpost
                 </a>
               )}
             </div>
@@ -428,6 +466,19 @@ export function ProjectDetails() {
                 >
                   <i className="fa-solid fa-arrow-up-right-from-square" />
                   Live Demo
+                </a>
+              )}
+              {project.devpost && (
+                <a
+                  href={project.devpost}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={linkBtnStyle('#f472b6')}
+                  onMouseEnter={linkHoverIn('#f472b6')}
+                  onMouseLeave={linkHoverOut('#f472b6')}
+                >
+                  <i className="fa-solid fa-trophy" />
+                  Devpost
                 </a>
               )}
             </div>

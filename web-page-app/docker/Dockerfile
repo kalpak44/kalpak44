@@ -39,10 +39,15 @@ RUN npm ci --no-audit --no-fund
 
 COPY web-page-app/src ./src
 COPY web-page-app/public ./public
-COPY web-page-app/index.html web-page-app/vite.config.js web-page-app/eslint.config.js ./
+COPY web-page-app/vite.config.js web-page-app/react-router.config.js web-page-app/eslint.config.js ./
 COPY --from=pdf-builder /tmp/resume.pdf ./public/assets/resume.pdf
 
-RUN npx vite build
+# The container resolves "localhost" to ::1 first, but the prerender build's preview
+# server and its own client disagree on that address, so the client's request to
+# 127.0.0.1 gets refused. Forcing IPv4 first makes both sides bind/connect to the
+# same address.
+ENV NODE_OPTIONS=--dns-result-order=ipv4first
+RUN npm run build
 
 # `-slim` is the same nginx runtime without the optional modules (image-filter, xslt,
 # geoip, njs, acme); those pull in libexpat, tiff and nghttp2, none of which this site uses.
@@ -66,7 +71,7 @@ WORKDIR /usr/share/nginx/html
 
 RUN rm -rf ./*
 
-COPY --from=web-builder /app/web-page-app/dist /usr/share/nginx/html
+COPY --from=web-builder /app/web-page-app/build/client /usr/share/nginx/html
 COPY web-page-app/docker/nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80

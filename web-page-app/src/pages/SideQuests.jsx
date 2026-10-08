@@ -1,8 +1,18 @@
 import { createPortal } from 'react-dom'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router'
 import { useState, useEffect, useCallback, useRef } from 'react'
 import gsap from 'gsap'
 import { useIsMobile } from '../hooks/useIsMobile.js'
+
+export function meta() {
+  return [
+    { title: 'Side Quests - Pavel Usanli' },
+    {
+      name: 'description',
+      content: 'A personal photo gallery from Pavel Usanli — life beyond code.',
+    },
+  ]
+}
 
 const C = {
   cyan: '#00d4ff',
@@ -535,7 +545,7 @@ function PhotoViewer({ photo, index, total, hasPrev, hasNext, onPrev, onNext, on
   )
 }
 
-export function SideQuests() {
+export default function SideQuests() {
   const navigate = useNavigate()
   const isMobile = useIsMobile()
   const [selectedIdx, setSelectedIdx] = useState(null)
