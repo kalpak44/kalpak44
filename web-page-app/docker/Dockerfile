@@ -55,7 +55,12 @@ FROM nginx:1.31-alpine-slim
 #
 # zlib 1.3.2-r0 in the same tag carries CVE-2026-85091 (High), fixed in 1.3.2-r1, which
 # Alpine v3.24 also publishes; pull that in for the same reason.
-RUN apk upgrade --no-cache pcre2 zlib
+#
+# libcrypto3/libssl3 3.5.8-r0 in the same tag carry 13 openssl CVEs (CVE-2026-54873,
+# CVE-2026-72897, CVE-2026-84782, CVE-2026-84784, and nine Medium/Low) whose NVD ranges
+# for the 3.5 series end at < 3.5.9; Alpine v3.24 publishes 3.5.9-r0. The soname is
+# unchanged (libcrypto.so.3, libssl.so.3), so this is the same patch-level pull.
+RUN apk upgrade --no-cache pcre2 zlib libcrypto3 libssl3
 
 WORKDIR /usr/share/nginx/html
 
