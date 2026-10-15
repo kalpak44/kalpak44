@@ -12,6 +12,7 @@ import nfrMd from './cheatsheets/non-functional-requirements.md?raw'
 import c4Md from './cheatsheets/c4-model.md?raw'
 import reliabilityMd from './cheatsheets/reliability-sre.md?raw'
 import maintainabilityMd from './cheatsheets/maintainability.md?raw'
+import documentationMd from './cheatsheets/documentation.md?raw'
 
 export const cheatsheets = [
   {
@@ -111,5 +112,12 @@ export const cheatsheets = [
     summary:
       'Software maintainability principles for building systems that are easy to understand, modify, and extend. Covers modular design, separation of concerns, low coupling, high cohesion, code readability, refactoring practices, automated testing, and common maintainability metrics.',
     details: maintainabilityMd,
+  },
+  {
+    id: 'documentation',
+    title: 'Documentation',
+    summary:
+      'Documentation as a living part of the system: the onboarding trick of asking newcomers to fix the gaps they find, the main document types (README, architecture, API, runbooks, ADRs), keeping docs next to the code, and the signs that documentation is failing.',
+    details: documentationMd,
   },
 ]
