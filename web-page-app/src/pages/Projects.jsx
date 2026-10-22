@@ -62,7 +62,14 @@ export default function Projects() {
                     </div>
 
                     <div className="pp-item__actions">
-                      <Link to={`/projects/${project.id}`} className="pp-btn pp-btn--sm">
+                      {/* Duplicates the title's destination, so it is skipped in
+                          the tab order — the GitHub and live links below point
+                          somewhere else and stay reachable. */}
+                      <Link
+                        to={`/projects/${project.id}`}
+                        className="pp-btn pp-btn--sm"
+                        tabIndex={-1}
+                      >
                         Read more
                         <Icon name="arrow-right" size={15} />
                       </Link>

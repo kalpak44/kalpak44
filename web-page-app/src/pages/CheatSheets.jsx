@@ -30,21 +30,29 @@ export default function CheatSheets() {
           <ol className="pp-itemlist">
             {cheatsheets.map((sheet, index) => (
               <Reveal as="li" key={sheet.id} delay={index * 40}>
-                <Link
-                  to={`/cheat-sheets/${sheet.id}`}
-                  className="pp-card pp-item pp-link-plain"
-                >
+                <article className="pp-card pp-item">
                   <div className="pp-item__body">
-                    <h2 className="pp-card__title">{sheet.title}</h2>
+                    <h2 className="pp-card__title">
+                      {/* Same stretched link as the project cards: the title
+                          anchor's ::after covers the card, so the whole thing is
+                          one hit area and the button stays a real link. */}
+                      <Link to={`/cheat-sheets/${sheet.id}`} className="pp-item__link">
+                        {sheet.title}
+                      </Link>
+                    </h2>
                     <p className="pp-body">{sheet.summary}</p>
                   </div>
                   <div className="pp-item__actions">
-                    <span className="pp-btn pp-btn--sm" aria-hidden="true">
-                      Read
+                    <Link
+                      to={`/cheat-sheets/${sheet.id}`}
+                      className="pp-btn pp-btn--sm"
+                      tabIndex={-1}
+                    >
+                      Read more
                       <Icon name="arrow-right" size={15} />
-                    </span>
+                    </Link>
                   </div>
-                </Link>
+                </article>
               </Reveal>
             ))}
           </ol>
