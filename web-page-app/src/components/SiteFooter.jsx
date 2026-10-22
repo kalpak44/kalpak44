@@ -44,7 +44,7 @@ export function SiteFooter() {
 
         <div className="pp-inner pp-footer__legal">
           <p className="pp-meta">
-            &copy; {year} {profile.name}. Built with React Router and Tailwind CSS.
+            &copy; {year} {profile.name}. Built with React Router.
           </p>
         </div>
       </div>
