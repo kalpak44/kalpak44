@@ -1,5 +1,81 @@
-@import 'tailwindcss';
-@plugin "@tailwindcss/typography";
+/* ------------------------------------------------------------------
+   Reset
+
+   Replaces Tailwind's preflight. The site uses no utility classes — every
+   selector here is hand-written — so the framework was shipping ~6KB of
+   reset and theme scaffolding for nothing. These are the preflight rules
+   the layout actually depends on.
+   ------------------------------------------------------------------ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+  padding: 0;
+}
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+button {
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+hr {
+  border: 0;
+  color: inherit;
+}
 
 /* ------------------------------------------------------------------
    Design tokens
@@ -9,23 +85,12 @@
    Sen carries the headings (tight negative tracking), Inter the prose.
    ------------------------------------------------------------------ */
 
-@theme {
-  --color-bg: #f2f2f2;
-  --color-surface: #ffffff;
-  --color-ink: #000000;
-  --color-ink-strong: rgba(0, 0, 0, 0.78);
-  --color-ink-muted: rgba(0, 0, 0, 0.639);
-  --color-ink-faint: rgba(0, 0, 0, 0.522);
-  --color-line: rgba(0, 0, 0, 0.18);
-  --color-line-soft: rgba(0, 0, 0, 0.08);
-
+:root {
   --font-display: 'Sen', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-body:
     'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
-}
 
-:root {
   --bg: #f2f2f2;
   --surface: #ffffff;
   --ink: #000000;
@@ -233,12 +298,7 @@ a:hover {
     transform 0.25s ease;
 }
 
-.pp-card--flat {
-  background-color: transparent;
-}
-
-a.pp-card:hover,
-.pp-card--interactive:hover {
+a.pp-card:hover {
   border-color: rgba(0, 0, 0, 0.42);
   transform: translateY(-2px);
 }
