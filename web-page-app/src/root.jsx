@@ -1,5 +1,4 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router'
-import { ThemeProvider } from './context/ThemeContext.jsx'
 import './index.css'
 
 export function Layout({ children }) {
@@ -9,13 +8,21 @@ export function Layout({ children }) {
         <meta charSet="UTF-8" />
         <link rel="icon" type="image/svg+xml" href="/logo.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="color-scheme" content="light only" />
+        <meta name="theme-color" content="#f2f2f2" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700&family=Inter:wght@400;500;600&display=swap"
           rel="stylesheet"
         />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        {/* Marks the document as scripted before first paint, which is what
+            arms the scroll-reveal start state. Keeping it inline and synchronous
+            avoids a flash of already-visible content on fast connections. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js')",
+          }}
         />
         <Meta />
         <Links />
@@ -65,9 +72,5 @@ export function Layout({ children }) {
 }
 
 export default function Root() {
-  return (
-    <ThemeProvider>
-      <Outlet />
-    </ThemeProvider>
-  )
+  return <Outlet />
 }

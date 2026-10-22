@@ -1,8 +1,8 @@
-import { Link, useNavigate } from 'react-router'
-import { useState, useEffect } from 'react'
-import gsap from 'gsap'
+import { Link } from 'react-router'
 import { projects } from '../data/projects.js'
-import { useIsMobile } from '../hooks/useIsMobile.js'
+import { Icon } from '../components/Icon.jsx'
+import { Reveal } from '../components/Reveal.jsx'
+import { PageIntro } from '../components/Section.jsx'
 import { pageMeta } from '../lib/seo.js'
 
 export function meta() {
@@ -14,538 +14,96 @@ export function meta() {
   })
 }
 
-const C = {
-  cyan: '#00d4ff',
-  purple: '#8b5cf6',
-  pink: '#f472b6',
-  text: '#f1f5f9',
-  muted: '#64748b',
-  subtle: '#94a3b8',
-  sky: '#7dd3fc',
-}
-
-function WindowControls({ onClose }) {
-  const [hovered, setHovered] = useState(false)
-  return (
-    <div
-      style={{ display: 'flex', gap: '7px', alignItems: 'center' }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      <button
-        onClick={onClose}
-        aria-label="Close"
-        style={{
-          width: '13px',
-          height: '13px',
-          borderRadius: '50%',
-          background: '#ff5f57',
-          border: 'none',
-          cursor: 'pointer',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          boxShadow: hovered ? '0 0 8px rgba(255,95,87,0.6)' : 'none',
-          transition: 'box-shadow 0.2s',
-        }}
-      >
-        {hovered && (
-          <svg
-            width="6"
-            height="6"
-            viewBox="0 0 12 12"
-            fill="none"
-            stroke="#8d0e0a"
-            strokeWidth="1.8"
-          >
-            <path d="M2 2l8 8M10 2l-8 8" strokeLinecap="round" />
-          </svg>
-        )}
-      </button>
-      {['#febc2e', '#28c840'].map((color, i) => (
-        <button
-          key={i}
-          type="button"
-          aria-label={['Minimize', 'Maximize'][i]}
-          style={{
-            width: '13px',
-            height: '13px',
-            borderRadius: '50%',
-            background: color,
-            border: 'none',
-            cursor: 'default',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          {hovered && (
-            <svg
-              width="6"
-              height="6"
-              viewBox="0 0 12 12"
-              fill="none"
-              stroke={i === 0 ? '#8d6302' : '#0d5215'}
-              strokeWidth="1.8"
-            >
-              {i === 0 ? (
-                <path d="M2 6h8" strokeLinecap="round" />
-              ) : (
-                <path d="M2 6h8M6 2v8" strokeLinecap="round" />
-              )}
-            </svg>
-          )}
-        </button>
-      ))}
-    </div>
-  )
-}
+// Only the first few technologies are shown on a card; the rest are counted so
+// a project with twenty tags does not swamp the one next to it.
+const TAG_LIMIT = 6
 
 export default function Projects() {
-  const navigate = useNavigate()
-  const isMobile = useIsMobile()
-
-  useEffect(() => {
-    if (isMobile) return
-    if (!projects.length) return
-    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return
-    gsap.fromTo(
-      '.cin-page-card',
-      { opacity: 0, y: 32, scale: 0.98 },
-      { opacity: 1, y: 0, scale: 1, duration: 0.65, ease: 'power3.out' }
-    )
-    gsap.fromTo(
-      '.cin-proj-item',
-      { opacity: 0, y: 24, scale: 0.97 },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.6,
-        ease: 'power3.out',
-        stagger: 0.07,
-        delay: 0.18,
-      }
-    )
-  }, [isMobile])
-
-  if (!projects.length) return null
-
-  // ── iOS layout ─────────────────────────────────────────────
-  if (isMobile) {
-    return (
-      <>
-        <style>{`
-          .ios-proj-row { -webkit-tap-highlight-color: transparent; transition: background 0.12s; }
-          .ios-proj-row:active { background: rgba(255,255,255,0.09) !important; }
-        `}</style>
-        <div>
-          {/* Large title */}
-          <div style={{ marginBottom: '28px' }}>
-            <p
-              style={{
-                fontSize: '0.68rem',
-                fontWeight: 700,
-                color: C.pink,
-                letterSpacing: '0.22em',
-                textTransform: 'uppercase',
-                fontFamily: 'monospace',
-                margin: '0 0 8px',
-              }}
-            >
-              Side Work · Hobby
-            </p>
-            <h1
-              style={{
-                fontSize: '2rem',
-                fontWeight: 700,
-                color: C.text,
-                margin: 0,
-                letterSpacing: '-0.025em',
-                lineHeight: 1.15,
-              }}
-            >
-              Personal Projects
-            </h1>
-          </div>
-
-          {/* Inset grouped list */}
-          <div
-            style={{
-              borderRadius: '13px',
-              overflow: 'hidden',
-              background: 'rgba(255,255,255,0.05)',
-              border: '1px solid rgba(255,255,255,0.06)',
-            }}
-          >
-            {projects.map((project, idx) => (
-              <Link
-                key={project.id}
-                to={`/projects/${project.id}`}
-                className="ios-proj-row"
-                style={{
-                  position: 'relative',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '13px',
-                  padding: '12px 16px',
-                  textDecoration: 'none',
-                  background: 'transparent',
-                }}
-              >
-                {/* App icon */}
-                <div
-                  style={{
-                    width: '38px',
-                    height: '38px',
-                    borderRadius: '9px',
-                    background:
-                      'linear-gradient(135deg, rgba(244,114,182,0.28), rgba(139,92,246,0.28))',
-                    border: '1px solid rgba(244,114,182,0.22)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0,
-                  }}
-                >
-                  <i
-                    className="fa-solid fa-folder"
-                    style={{ color: C.pink, fontSize: '0.85rem' }}
-                  />
-                </div>
-                {/* Text */}
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <div
-                    style={{
-                      fontWeight: 600,
-                      fontSize: '0.9rem',
-                      color: C.text,
-                      lineHeight: 1.3,
-                    }}
-                  >
-                    {project.title}
-                  </div>
-                  <div
-                    style={{
-                      fontSize: '0.75rem',
-                      color: C.subtle,
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
-                      whiteSpace: 'nowrap',
-                      marginTop: '2px',
-                    }}
-                  >
-                    {(project.technologies || []).length > 0
-                      ? (project.technologies || []).slice(0, 3).join(' · ')
-                      : project.summary}
-                  </div>
-                </div>
-                {/* Disclosure chevron */}
-                <svg
-                  width="7"
-                  height="12"
-                  viewBox="0 0 7 12"
-                  fill="none"
-                  stroke="rgba(255,255,255,0.22)"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  style={{ flexShrink: 0 }}
-                >
-                  <path d="M1 1l5 5-5 5" />
-                </svg>
-                {/* Inset separator */}
-                {idx < projects.length - 1 && (
-                  <div
-                    style={{
-                      position: 'absolute',
-                      bottom: 0,
-                      left: '67px',
-                      right: 0,
-                      height: '1px',
-                      background: 'rgba(255,255,255,0.07)',
-                    }}
-                  />
-                )}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </>
-    )
-  }
-
-  const handleTilt = (e) => {
-    const card = e.currentTarget
-    const rect = card.getBoundingClientRect()
-    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 14
-    const y = ((e.clientY - rect.top) / rect.height - 0.5) * -14
-    card.style.transform = `perspective(900px) rotateX(${y}deg) rotateY(${x}deg) scale(1.025) translateZ(10px)`
-  }
-  const resetTilt = (e) => {
-    e.currentTarget.style.transform =
-      'perspective(900px) rotateX(0) rotateY(0) scale(1) translateZ(0)'
-  }
-
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-      <div
-        className="cin-page-card"
-        style={{
-          borderRadius: '18px',
-          background: 'rgba(255,255,255,0.028)',
-          border: '1px solid rgba(0,212,255,0.1)',
-          boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
-          backdropFilter: 'blur(12px)',
-          overflow: 'hidden',
-        }}
-      >
-        {/* Window bar */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '12px',
-            padding: '14px 20px',
-            borderBottom: '1px solid rgba(0,212,255,0.07)',
-            background: 'rgba(0,212,255,0.02)',
-          }}
-        >
-          <WindowControls onClose={() => navigate('/')} />
-          <span
-            style={{
-              flex: 1,
-              textAlign: 'center',
-              fontSize: '0.78rem',
-              color: C.muted,
-              fontFamily: 'monospace',
-              letterSpacing: '0.05em',
-            }}
-          >
-            projects
-          </span>
-        </div>
+    <>
+      <PageIntro
+        eyebrow="Projects"
+        title="Things I have built"
+        lead="Side builds and open-source work - infrastructure, developer tooling, bots and the occasional language experiment."
+      />
 
-        <div style={{ padding: '28px 32px' }}>
-          {/* Heading */}
-          <div style={{ marginBottom: '32px' }}>
-            <p
-              style={{
-                fontSize: '0.7rem',
-                fontWeight: 700,
-                color: C.pink,
-                letterSpacing: '0.28em',
-                textTransform: 'uppercase',
-                fontFamily: 'monospace',
-                marginBottom: '10px',
-              }}
-            >
-              Side Work · Hobby
-            </p>
-            <h1
-              style={{
-                fontSize: 'clamp(1.6rem, 3vw, 2.2rem)',
-                fontWeight: 800,
-                color: C.text,
-                letterSpacing: '-0.025em',
-                margin: '0 0 10px',
-              }}
-            >
-              Personal Projects
-            </h1>
-            <p
-              style={{
-                fontSize: '0.9rem',
-                color: C.subtle,
-                maxWidth: '480px',
-                lineHeight: 1.6,
-              }}
-            >
-              Experiments and hobby builds - not part of my main job, just things I enjoy
-              building.
-            </p>
-            <div
-              style={{
-                width: '48px',
-                height: '2px',
-                background: `linear-gradient(90deg, ${C.pink}, ${C.purple})`,
-                borderRadius: '1px',
-                marginTop: '14px',
-              }}
-            />
-          </div>
+      <hr className="pp-rule" />
 
-          {/* Project grid */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-              gap: '16px',
-            }}
-          >
-            {projects.map((project, idx) => (
-              <div
-                key={project.id}
-                className="cin-proj-item"
-                style={{
-                  transformStyle: 'preserve-3d',
-                  transition: 'transform 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                }}
-                onMouseMove={handleTilt}
-                onMouseLeave={resetTilt}
-              >
-                <Link
-                  to={`/projects/${project.id}`}
-                  style={{ textDecoration: 'none', display: 'block' }}
-                >
-                  <div
-                    style={{
-                      position: 'relative',
-                      padding: '18px 20px',
-                      borderRadius: '13px',
-                      background: 'rgba(255,255,255,0.025)',
-                      border: '1px solid rgba(244,114,182,0.1)',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      transition:
-                        'border-color 0.25s, box-shadow 0.25s, background 0.25s',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(244,114,182,0.32)'
-                      e.currentTarget.style.background = 'rgba(244,114,182,0.04)'
-                      e.currentTarget.style.boxShadow =
-                        '0 0 40px rgba(244,114,182,0.06), inset 0 0 50px rgba(244,114,182,0.02)'
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(244,114,182,0.1)'
-                      e.currentTarget.style.background = 'rgba(255,255,255,0.025)'
-                      e.currentTarget.style.boxShadow = 'none'
-                    }}
-                  >
-                    {/* Corner number */}
-                    <span
-                      style={{
-                        position: 'absolute',
-                        top: '16px',
-                        right: '16px',
-                        fontSize: '0.65rem',
-                        fontWeight: 700,
-                        color: C.muted,
-                        fontFamily: 'monospace',
-                      }}
-                    >
-                      {String(idx + 1).padStart(2, '0')}
-                    </span>
+      <section className="pp-section">
+        <div className="pp-inner">
+          <ol className="pp-itemlist">
+            {projects.map((project, index) => {
+              const shown = project.technologies.slice(0, TAG_LIMIT)
+              const extra = project.technologies.length - shown.length
 
-                    <h3
-                      style={{
-                        fontWeight: 700,
-                        fontSize: '0.95rem',
-                        color: C.text,
-                        marginBottom: '7px',
-                        lineHeight: 1.35,
-                        paddingRight: '24px',
-                      }}
-                    >
-                      {project.title}
-                    </h3>
+              return (
+                <Reveal as="li" key={project.id} delay={index * 50}>
+                  <article className="pp-card pp-item">
+                    <div className="pp-item__body">
+                      <h2 className="pp-card__title">
+                        {/* Stretched link: the ::after in the stylesheet covers
+                            the whole card, so the title, the body and the empty
+                            space all open the project. The action buttons sit on
+                            a higher layer and keep their own targets. */}
+                        <Link to={`/projects/${project.id}`} className="pp-item__link">
+                          {project.title}
+                        </Link>
+                      </h2>
+                      <p className="pp-body">{project.summary}</p>
 
-                    <p
-                      style={{
-                        fontSize: '0.82rem',
-                        color: C.subtle,
-                        lineHeight: 1.6,
-                        flex: 1,
-                        marginBottom: '14px',
-                      }}
-                    >
-                      {project.summary.length > 100
-                        ? project.summary.slice(0, 100) + '…'
-                        : project.summary}
-                    </p>
+                      <ul className="pp-taglist">
+                        {shown.map((tech) => (
+                          <li key={tech} className="pp-tag">
+                            {tech}
+                          </li>
+                        ))}
+                        {extra > 0 && <li className="pp-tag">+{extra} more</li>}
+                      </ul>
+                    </div>
 
-                    <div
-                      style={{
-                        display: 'flex',
-                        flexWrap: 'wrap',
-                        gap: '5px',
-                        marginBottom: '12px',
-                      }}
-                    >
-                      {(project.technologies || []).slice(0, 4).map((tech, ti) => (
-                        <span
-                          key={ti}
-                          style={{
-                            padding: '2px 8px',
-                            borderRadius: '6px',
-                            background: 'rgba(244,114,182,0.08)',
-                            border: '1px solid rgba(244,114,182,0.15)',
-                            color: '#f9a8d4',
-                            fontSize: '0.7rem',
-                            fontWeight: 500,
-                          }}
+                    <div className="pp-item__actions">
+                      {/* Duplicates the title's destination, so it is skipped in
+                          the tab order — the GitHub and live links below point
+                          somewhere else and stay reachable. */}
+                      <Link
+                        to={`/projects/${project.id}`}
+                        className="pp-btn pp-btn--sm"
+                        tabIndex={-1}
+                      >
+                        Read more
+                        <Icon name="arrow-right" size={15} />
+                      </Link>
+
+                      {project.github && (
+                        <a
+                          className="pp-iconbtn"
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${project.title} on GitHub`}
                         >
-                          {tech}
-                        </span>
-                      ))}
-                      {(project.technologies || []).length > 4 && (
-                        <span
-                          style={{
-                            fontSize: '0.7rem',
-                            color: C.muted,
-                            alignSelf: 'center',
-                          }}
+                          <Icon name="github" size={18} />
+                        </a>
+                      )}
+                      {project.url && (
+                        <a
+                          className="pp-iconbtn"
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`Live site for ${project.title}`}
                         >
-                          +{project.technologies.length - 4}
-                        </span>
+                          <Icon name="globe" size={18} />
+                        </a>
                       )}
                     </div>
-
-                    <div
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '5px',
-                        color: C.pink,
-                        fontSize: '0.76rem',
-                        fontWeight: 600,
-                      }}
-                    >
-                      <span>View details</span>
-                      <i
-                        className="fa-solid fa-arrow-right"
-                        style={{ fontSize: '0.68rem' }}
-                      />
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            ))}
-          </div>
+                  </article>
+                </Reveal>
+              )
+            })}
+          </ol>
         </div>
-      </div>
-
-      {/* Back */}
-      <div style={{ display: 'flex', justifyContent: 'center', paddingBottom: '16px' }}>
-        <Link
-          to="/"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            color: C.muted,
-            textDecoration: 'none',
-            fontSize: '0.9rem',
-            fontWeight: 500,
-            transition: 'color 0.2s',
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = C.pink)}
-          onMouseLeave={(e) => (e.currentTarget.style.color = C.muted)}
-        >
-          <i className="fa-solid fa-arrow-left" />
-          Back to Resume
-        </Link>
-      </div>
-    </div>
+      </section>
+    </>
   )
 }
