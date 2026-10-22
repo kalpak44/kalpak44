@@ -217,9 +217,12 @@ export const profile = {
         'Azure DevOps',
         'Azure Container Apps',
         'Azure Event Grid',
+        'Azure Functions',
         'Helm',
         'FluxCD',
         'GitOps',
+        'Prometheus',
+        'Grafana',
       ],
     },
     {
