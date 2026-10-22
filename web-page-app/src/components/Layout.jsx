@@ -1,38 +1,24 @@
+import { Outlet, useLocation } from 'react-router'
 import { useEffect } from 'react'
-import { Outlet } from 'react-router'
-import { StarField } from './StarField.jsx'
-import { CinematicNav } from './CinematicNav.jsx'
+import { SiteHeader } from './SiteHeader.jsx'
+import { SiteFooter } from './SiteFooter.jsx'
 
 export default function Layout() {
+  const { pathname } = useLocation()
+
+  // Detail pages are reached from a list further down the page; without this
+  // the browser keeps the previous scroll offset and opens them mid-article.
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', 'dark')
-  }, [])
+    window.scrollTo(0, 0)
+  }, [pathname])
 
   return (
-    <>
-      <style>{`
-        .layout-root { min-height: 100vh; min-height: 100dvh; }
-        @media (max-width: 640px) {
-          .layout-root {
-            padding-top: 20px !important;
-            padding-bottom: calc(80px + env(safe-area-inset-bottom)) !important;
-          }
-        }
-      `}</style>
-      <StarField />
-      <CinematicNav />
-      <div
-        className="layout-root"
-        style={{
-          position: 'relative',
-          zIndex: 1,
-          padding: 'clamp(88px, 11vw, 110px) clamp(20px, 5vw, 56px) 72px',
-          maxWidth: '1000px',
-          margin: '0 auto',
-        }}
-      >
+    <div className="pp-shell">
+      <SiteHeader />
+      <main id="main" className="pp-main">
         <Outlet />
-      </div>
-    </>
+      </main>
+      <SiteFooter />
+    </div>
   )
 }
