@@ -19,7 +19,7 @@
 
         <compiler.plugin.version>3.16.0</compiler.plugin.version>
         <surefire.plugin.version>3.6.1</surefire.plugin.version>
-        <enforcer.plugin.version>3.6.3</enforcer.plugin.version>
+        <enforcer.plugin.version>3.7.0</enforcer.plugin.version>
         <exec.plugin.version>3.6.4</exec.plugin.version>
         <freemarker.version>2.3.35</freemarker.version>
         <spark.version>2.9.4</spark.version>
