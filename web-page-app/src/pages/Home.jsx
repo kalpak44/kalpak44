@@ -10,7 +10,7 @@ import { pageMeta } from '../lib/seo.js'
 
 export function meta() {
   const description =
-    'Pavel Usanli - Software Engineer with Java. Backend services, Kubernetes, CI/CD, ' +
+    'Pavel Usanli - Java Software Engineer. Backend services, Kubernetes, CI/CD, ' +
     'cloud infrastructure and AI tooling, from Sofia, Bulgaria.'
   return [
     ...pageMeta({
@@ -262,7 +262,7 @@ function Contact() {
       <Reveal className="pp-cta">
         <p className="pp-lead">
           Open to interesting backend, platform and AI-tooling work. The fastest way to
-          reach me is email.
+          reach me is by email.
         </p>
 
         <div className="pp-actions">

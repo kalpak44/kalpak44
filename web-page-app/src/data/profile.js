@@ -2,7 +2,7 @@ import profileImage from '../assets/profile.jpg'
 
 export const profile = {
   name: 'Pavel Usanli',
-  role: 'Software Engineer with Java',
+  role: 'Java Software Engineer',
   location: 'Sofia City, Bulgaria',
   avatar: profileImage,
 
@@ -53,11 +53,11 @@ export const profile = {
   ],
 
   summary:
-    "I'm a Software Engineer with a focus on Java, passionate about automation and building complete, reliable " +
+    "I'm a software engineer with a focus on Java, passionate about automation and building complete, reliable " +
     'systems. I enjoy developing and maintaining end-to-end solutions from backend services and APIs to frontend ' +
     'features, infrastructure, and CI/CD. While Java is my main language, I also like working with JavaScript ' +
-    'and keep experimenting with practical tools that deliver real business value. Lately, I enjoy experimenting ' +
-    'with AI, building agent flows and pipelines, and using and building MCP so development stays more ' +
+    "and keep experimenting with practical tools that deliver real business value. Lately, I've been experimenting " +
+    'with AI, building agent flows and pipelines, and using and building MCP servers to make development more ' +
     'productive, clean, and maintainable.',
 
   stats: [
@@ -75,7 +75,7 @@ export const profile = {
     {
       value: '∞',
       label: 'Curiosity',
-      description: 'Always experimenting - Web3, GitOps, Raspberry Pi, Bots, homelab K8s',
+      description: 'Always experimenting - Web3, GitOps, Raspberry Pi, bots, homelab K8s',
     },
   ],
 
@@ -87,8 +87,8 @@ export const profile = {
       period: 'June 2020 – Present',
       bullets: [
         'Designed and deployed Java microservices and ETL pipelines on Kubernetes to modernize data transformation flows, enabling reliable processing across distributed systems.',
-        'Collaborated with Product Owners to define and refine backlog items before sprints, reducing scope misalignment and keeping development aligned with product goals.',
-        'Reviewed Pull Requests for quality and security across a cross-functional team, maintaining consistent engineering standards and catching defects early.',
+        'Collaborated with product owners to define and refine backlog items before sprints, reducing scope misalignment and keeping development aligned with product goals.',
+        'Reviewed pull requests for quality and security across a cross-functional team, maintaining consistent engineering standards and catching defects early.',
         'Introduced unit and integration test coverage for critical services, supporting stable releases and reducing production incidents.',
         'Proposed and documented architectural improvements to address growing system complexity, resulting in a cleaner, more maintainable codebase.',
       ],
@@ -152,7 +152,7 @@ export const profile = {
         'Java',
         'Angular',
         'Intershop eCommerce platform',
-        'GIT',
+        'Git',
         'SVN',
         'Jira',
       ],
@@ -164,7 +164,7 @@ export const profile = {
       period: 'October 2015 – June 2017',
       bullets: [
         'Built Java components for the Openbravo ERP platform to extend core functionality and meet new business requirements.',
-        'Debugged and resolved platform issues across feature and compatibility work, restoring stable behavior and preventing regression.',
+        'Debugged and resolved platform issues across feature and compatibility work, restoring stable behavior and preventing regressions.',
         'Developed and tested platform changes with a focus on stability, ensuring consistent behavior across releases.',
       ],
       technologies: ['Java', 'Openbravo ERP', 'IntelliJ IDEA', 'Jira'],
@@ -183,7 +183,7 @@ export const profile = {
         'Microservices',
         'ETL',
         'REST APIs',
-        '3rd Party Integrations',
+        'Third-party integrations',
         'commercetools',
         'Azure DevOps APIs',
         'Stripe',
