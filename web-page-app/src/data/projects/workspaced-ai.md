@@ -8,7 +8,7 @@ The philosophy is simple: give the agent a useful environment, keep its work wit
 
 ### A workspace is a machine that can do the work
 
-Each workspace gets its own Hetzner virtual machine. Inside it, a container runs OpenCode, the agent harness that handles conversations, tools, and terminal sessions. The agent can write code, install packages, configure integrations, and build and run applications through the VM's rootless Docker daemon.
+Each workspace gets its own isolated virtual machine. Inside it, a container runs OpenCode, the agent harness that handles conversations, tools, and terminal sessions. The agent can write code, install packages, configure integrations, and build and run applications through the VM's rootless Docker daemon.
 
 The browser is where I talk to it and inspect the result. Chat streams the agent's progress, a terminal gives me direct access when I need it, and settings expose secrets, instructions, MCP servers, and scheduled tasks. Models connect through OpenRouter using the user's own key.
 
@@ -119,7 +119,7 @@ The project includes a GoDaddy recipe that equips the agent with the official CL
 | ---------------------- | ------------------------------------------------------------------------------------------------ |
 | Browser application    | React, TypeScript, Vite, and Tailwind CSS; streaming chat, settings, and an xterm.js terminal    |
 | Platform services      | Java 25 and Spring Boot; separate API, VM manager, and agent hub                                 |
-| Workspace runtime      | Hetzner Cloud VMs, a Go supervisor, and an Alpine-based OpenCode harness                         |
+| Workspace runtime      | Isolated VMs, a Go supervisor, and an Alpine-based OpenCode harness                              |
 | Applications and tools | Rootless Docker and Compose, Node.js, Python, shell tools, and local or remote MCP servers       |
 | State and secrets      | PostgreSQL, JPA, Flyway migrations, and HashiCorp Vault                                          |
 | Authentication         | Auth0 sign-in with Spring Security and an HttpOnly session cookie                                |

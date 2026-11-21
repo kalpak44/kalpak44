@@ -58,7 +58,6 @@ export const projects = [
       'PostgreSQL',
       'Flyway',
       'HashiCorp Vault',
-      'Hetzner Cloud',
       'Docker',
       'WebSockets',
       'Auth0',
