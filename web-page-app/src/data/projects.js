@@ -1,7 +1,7 @@
 import bunkerMd from './projects/bunker.md?raw'
 import nocoAiToolsMd from './projects/noco-ai-tools.md?raw'
 import homelabMd from './projects/homelab.md?raw'
-import telegramMd from './projects/telegram-stripe-bot.md?raw'
+import workspacedMd from './projects/workspaced-ai.md?raw'
 import codeViewerMd from './projects/code-viewer-bot.md?raw'
 import k8sUtilMd from './projects/k8s-utility-containers.md?raw'
 import miteAssistantMd from './projects/mite-assistant-mcp.md?raw'
@@ -9,27 +9,6 @@ import capacityPlannerMd from './projects/capacity-planner.md?raw'
 import formaDslMd from './projects/forma-dsl.md?raw'
 
 export const projects = [
-  {
-    id: 'bunker',
-    title: 'Bunker - Real-Time Browser Party Game',
-    summary:
-      'A fast, browser-based real-time party game inspired by the popular "Bunker" format. Players receive survival characters with hidden attributes and must convince others why they deserve a spot in the bunker during escalating disaster rounds.',
-    technologies: [
-      'Java',
-      'Spark Java',
-      'WebSockets',
-      'JavaScript',
-      'Tailwind CSS',
-      'SonarCloud',
-      'JaCoCo',
-      'Jib',
-      'Docker',
-      'Maven',
-    ],
-    github: 'https://github.com/kalpak44/bunker-party',
-    url: 'https://bunker.pavel-usanli.online/',
-    details: bunkerMd,
-  },
   {
     id: 'homelab',
     title: 'Homelab - Self-Hosted Infrastructure Platform',
@@ -63,22 +42,54 @@ export const projects = [
     details: homelabMd,
   },
   {
-    id: 'telegram-stripe-bot',
-    title: 'Telegram Stripe Bot - Java Payment Automation',
+    id: 'workspaced-ai',
+    title: 'workspaced-ai - AI Workspaces for Everyday Automation',
     summary:
-      'A lightweight Telegram bot that generates Stripe Checkout payment links from chat input, built in raw Java and deployed via Docker on Raspberry Pi (ARM32).',
+      'A platform I built to automate routine tasks in isolated VMs. Users build and configure their workspace through OpenCode, then can share useful setup instructions as community recipes for others to use.',
     technologies: [
-      'Java 17',
-      'TelegramBots API',
-      'Stripe Java SDK',
+      'Java 25',
+      'Spring Boot',
+      'React',
+      'TypeScript',
+      'Go',
+      'OpenCode',
+      'MCP',
+      'OpenRouter',
+      'PostgreSQL',
+      'Flyway',
+      'HashiCorp Vault',
+      'Hetzner Cloud',
       'Docker',
-      'ARM32',
-      'Maven',
-      'SLF4J',
-      'Logback',
+      'WebSockets',
+      'Auth0',
+      'Stripe',
+      'Tailwind CSS',
+      'Vite',
     ],
-    github: 'https://github.com/kalpak44/telegram-bot',
-    details: telegramMd,
+    github: 'https://github.com/kalpak44/workspaced-ai',
+    url: 'https://workspaced.online/',
+    details: workspacedMd,
+  },
+  {
+    id: 'forma-dsl',
+    title: 'forma-dsl - A Declarative 3D Modeling Language',
+    summary:
+      'An attempt to build my own DSL: a declarative language for 3D modeling and scene composition, with reusable components, a geometry kernel, an MCP server, and a browser editor with live solve-as-you-type previews.',
+    technologies: [
+      'JavaScript',
+      'Node.js',
+      'npm Workspaces',
+      'MCP SDK',
+      'CodeMirror',
+      'three.js',
+      'Vite',
+      'SonarCloud',
+      'GitHub Actions',
+    ],
+    github: 'https://github.com/kalpak44/forma-dsl',
+    url: 'https://kalpak44.github.io/forma-dsl/editor/',
+    devpost: 'https://devpost.com/software/forma-dsl',
+    details: formaDslMd,
   },
   {
     id: 'code-viewer-bot',
@@ -116,17 +127,8 @@ export const projects = [
     details: k8sUtilMd,
   },
   {
-    id: 'mite-assistant-mcp',
-    title: 'Mite Assistant MCP - AI Time Tracking via MCP',
-    summary:
-      'An MCP server that connects AI assistants (Claude, Codex) to Mite time tracking. Log, query, and update time entries through natural language - without leaving your editor.',
-    technologies: ['Node.js', 'JavaScript', 'MCP SDK', 'Zod', 'REST API', 'Bearer Auth'],
-    github: 'https://github.com/kalpak44/mite-assistant-mcp',
-    details: miteAssistantMd,
-  },
-  {
     id: 'noco-ai-tools',
-    title: 'Noco AI Tools - NocoBase Plugin for Google + AI',
+    title: 'google-connector - NocoBase Plugin for Google + AI',
     summary:
       'A NocoBase plugin that connects NocoBase AI employees to Gmail and Google Calendar via OAuth. Lets AI agents list, read, and send emails and manage calendar events on behalf of the logged-in user — with automatic token rotation and per-user isolation.',
     technologies: [
@@ -141,7 +143,7 @@ export const projects = [
       'GitHub Actions',
     ],
     github: 'https://github.com/kalpak44/plugin-noco-tools',
-    url: 'https://noco-ai-tools.pavel-usanli.online/',
+    url: 'https://noco-google-connector.pavel-usanli.online/',
     details: nocoAiToolsMd,
   },
   {
@@ -163,24 +165,33 @@ export const projects = [
     details: capacityPlannerMd,
   },
   {
-    id: 'forma-dsl',
-    title: 'forma-dsl - A Declarative 3D Modeling Language',
+    id: 'bunker',
+    title: 'Bunker - Real-Time Browser Party Game',
     summary:
-      'An attempt to build my own DSL: a declarative language for 3D modeling and scene composition, with reusable components, a geometry kernel, an MCP server, and a browser editor with live solve-as-you-type previews.',
+      'A fast, browser-based real-time party game inspired by the popular "Bunker" format. Players receive survival characters with hidden attributes and must convince others why they deserve a spot in the bunker during escalating disaster rounds.',
     technologies: [
+      'Java',
+      'Spark Java',
+      'WebSockets',
       'JavaScript',
-      'Node.js',
-      'npm Workspaces',
-      'MCP SDK',
-      'CodeMirror',
-      'three.js',
-      'Vite',
+      'Tailwind CSS',
       'SonarCloud',
-      'GitHub Actions',
+      'JaCoCo',
+      'Jib',
+      'Docker',
+      'Maven',
     ],
-    github: 'https://github.com/kalpak44/forma-dsl',
-    url: 'https://kalpak44.github.io/forma-dsl/editor/',
-    devpost: 'https://devpost.com/software/forma-dsl',
-    details: formaDslMd,
+    github: 'https://github.com/kalpak44/bunker-party',
+    url: 'https://bunker.pavel-usanli.online/',
+    details: bunkerMd,
+  },
+  {
+    id: 'mite-assistant-mcp',
+    title: 'Mite Assistant MCP - AI Time Tracking via MCP',
+    summary:
+      'An MCP server that connects AI assistants (Claude, Codex) to Mite time tracking. Log, query, and update time entries through natural language - without leaving your editor.',
+    technologies: ['Node.js', 'JavaScript', 'MCP SDK', 'Zod', 'REST API', 'Bearer Auth'],
+    github: 'https://github.com/kalpak44/mite-assistant-mcp',
+    details: miteAssistantMd,
   },
 ]

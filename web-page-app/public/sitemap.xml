@@ -2,189 +2,189 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://pavel-usanli.online/</loc>
+    <loc>https://www.pavel-usanli.online/</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://pavel-usanli.online/projects</loc>
+    <loc>https://www.pavel-usanli.online/projects</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://pavel-usanli.online/projects/bunker</loc>
+    <loc>https://www.pavel-usanli.online/projects/bunker</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://pavel-usanli.online/projects/homelab</loc>
+    <loc>https://www.pavel-usanli.online/projects/homelab</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://pavel-usanli.online/projects/telegram-stripe-bot</loc>
+    <loc>https://www.pavel-usanli.online/projects/workspaced-ai</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://pavel-usanli.online/projects/code-viewer-bot</loc>
+    <loc>https://www.pavel-usanli.online/projects/code-viewer-bot</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://pavel-usanli.online/projects/k8s-utility-containers</loc>
+    <loc>https://www.pavel-usanli.online/projects/k8s-utility-containers</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://pavel-usanli.online/projects/mite-assistant-mcp</loc>
+    <loc>https://www.pavel-usanli.online/projects/mite-assistant-mcp</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://pavel-usanli.online/projects/noco-ai-tools</loc>
+    <loc>https://www.pavel-usanli.online/projects/noco-ai-tools</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://pavel-usanli.online/projects/capacity-planner</loc>
+    <loc>https://www.pavel-usanli.online/projects/capacity-planner</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://pavel-usanli.online/projects/forma-dsl</loc>
+    <loc>https://www.pavel-usanli.online/projects/forma-dsl</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://pavel-usanli.online/cheat-sheets</loc>
+    <loc>https://www.pavel-usanli.online/cheat-sheets</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://pavel-usanli.online/cheat-sheets/rag</loc>
+    <loc>https://www.pavel-usanli.online/cheat-sheets/rag</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://pavel-usanli.online/cheat-sheets/cicd-deployments</loc>
+    <loc>https://www.pavel-usanli.online/cheat-sheets/cicd-deployments</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://pavel-usanli.online/cheat-sheets/microservices</loc>
+    <loc>https://www.pavel-usanli.online/cheat-sheets/microservices</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://pavel-usanli.online/cheat-sheets/service-to-service-communication</loc>
+    <loc>https://www.pavel-usanli.online/cheat-sheets/service-to-service-communication</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://pavel-usanli.online/cheat-sheets/kubernetes</loc>
+    <loc>https://www.pavel-usanli.online/cheat-sheets/kubernetes</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://pavel-usanli.online/cheat-sheets/sdlc</loc>
+    <loc>https://www.pavel-usanli.online/cheat-sheets/sdlc</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://pavel-usanli.online/cheat-sheets/semver</loc>
+    <loc>https://www.pavel-usanli.online/cheat-sheets/semver</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://pavel-usanli.online/cheat-sheets/dor-dod</loc>
+    <loc>https://www.pavel-usanli.online/cheat-sheets/dor-dod</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://pavel-usanli.online/cheat-sheets/apis-communication</loc>
+    <loc>https://www.pavel-usanli.online/cheat-sheets/apis-communication</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://pavel-usanli.online/cheat-sheets/db-transactions</loc>
+    <loc>https://www.pavel-usanli.online/cheat-sheets/db-transactions</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://pavel-usanli.online/cheat-sheets/non-functional-requirements</loc>
+    <loc>https://www.pavel-usanli.online/cheat-sheets/non-functional-requirements</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://pavel-usanli.online/cheat-sheets/c4-model</loc>
+    <loc>https://www.pavel-usanli.online/cheat-sheets/c4-model</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://pavel-usanli.online/cheat-sheets/reliability-sre</loc>
+    <loc>https://www.pavel-usanli.online/cheat-sheets/reliability-sre</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://pavel-usanli.online/cheat-sheets/maintainability</loc>
+    <loc>https://www.pavel-usanli.online/cheat-sheets/maintainability</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://pavel-usanli.online/side-quests</loc>
+    <loc>https://www.pavel-usanli.online/side-quests</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

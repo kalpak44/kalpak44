@@ -155,14 +155,14 @@ Common practices to improve reliability:
 
 **Redundancy**
 
-- [load balancing](https://pavel-usanli.online/cheat-sheets/apis-communication) (NGINX, HAProxy)
-- [replication](https://pavel-usanli.online/cheat-sheets/db-transactions) (Read Replicas, Multi-Master)
+- [load balancing](https://www.pavel-usanli.online/cheat-sheets/apis-communication) (NGINX, HAProxy)
+- [replication](https://www.pavel-usanli.online/cheat-sheets/db-transactions) (Read Replicas, Multi-Master)
 - multi-zone deployment
 
 **Fault Tolerance**
 
 - retries (Exponential Backoff)
-- [circuit breakers](https://pavel-usanli.online/cheat-sheets/microservices) (Resilience4j, Opossum)
+- [circuit breakers](https://www.pavel-usanli.online/cheat-sheets/microservices) (Resilience4j, Opossum)
 - bulkhead pattern
 
 **Incident Management**

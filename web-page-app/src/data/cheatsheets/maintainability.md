@@ -8,7 +8,7 @@ A maintainable system allows developers to:
 - reduce technical debt
 
 Maintainability is an
-important [Non-Functional Requirement (NFR)](https://pavel-usanli.online/cheat-sheets/non-functional-requirements).
+important [Non-Functional Requirement (NFR)](https://www.pavel-usanli.online/cheat-sheets/non-functional-requirements).
 
 ### Why Maintainability Matters
 
@@ -129,7 +129,7 @@ Common test types:
 
 Useful documentation includes:
 
-- Architecture Diagrams ([C4 Model](https://pavel-usanli.online/cheat-sheets/c4-model))
+- Architecture Diagrams ([C4 Model](https://www.pavel-usanli.online/cheat-sheets/c4-model))
 - API Documentation ([Swagger/OpenAPI](https://swagger.io/))
 - README files
 

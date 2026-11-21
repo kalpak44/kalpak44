@@ -1,4 +1,4 @@
-A NocoBase plugin that connects NocoBase's built-in **AI employees** to a user's **Gmail** and **Google Calendar** via user-consented OAuth. Built to explore NocoBase's plugin system, AI tool registration API, and what it actually takes to wire a real OAuth flow into a low-code platform.
+google-connector is a NocoBase plugin that connects NocoBase's built-in **AI employees** to a user's **Gmail** and **Google Calendar** via user-consented OAuth. Built to explore NocoBase's plugin system, AI tool registration API, and what it actually takes to wire a real OAuth flow into a low-code platform.
 
 ### What it does
 

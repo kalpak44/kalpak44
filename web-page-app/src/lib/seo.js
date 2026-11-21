@@ -1,4 +1,4 @@
-export const SITE_URL = 'https://pavel-usanli.online'
+export const SITE_URL = 'https://www.pavel-usanli.online'
 
 const DEFAULT_OG_IMAGE = `${SITE_URL}/assets/og-image.jpg`
 
